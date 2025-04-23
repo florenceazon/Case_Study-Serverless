@@ -12,7 +12,7 @@ pipe = DiffusionPipeline.from_pretrained(
     variant="fp16"
 ).to("cuda")
 
-def handler(event, context):
+def handler(event):
     prompt = event.get("input", "A surreal landscape with floating islands")
     
     # Generate image
