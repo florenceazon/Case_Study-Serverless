@@ -12,9 +12,9 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY . .
-
-CMD ["python3", "handler.py"]
+ENV RUNPOD_HANDLER=handler
+CMD ["python3", "-m", "runpod"]
